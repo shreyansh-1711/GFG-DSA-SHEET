@@ -185,14 +185,12 @@ int main()
 #endif
 
     fastio();
-    int n,k;
+    int n;
     cin >> n;
     vi arr(n);
     for (int i = 0; i < n; i++)
         cin >> arr[i];
-
-    cin>>k;    
     
     sort(arr.begin(), arr.end());
-    cout<<arr[k-1]<<endl;
+    cout<<arr.front()<<" "<<arr.back()<<endl;
 }
