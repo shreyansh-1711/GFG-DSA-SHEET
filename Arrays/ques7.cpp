@@ -189,32 +189,11 @@ int main()
     for (int i = 0; i < n; i++)
         cin >> arr[i];
 
-    // Approach-1 Brute force
-    // int ans = INT_MIN;
-    // for (int i = 0; i < n; i++)
-    //     for (int j = i, curSum = 0; j < n; j++)
-    //         curSum += arr[j],
-    //             ans = max(ans, curSum);
-
-    // cout << ans << endl;
-    //
-
-
-
-
-    
-    // Approach 2- Kadane Algorith
-    int local_max = 0;
-    int global_max = INT_MIN;
-    for (int i = 0; i < n; i++)
-    {
-        local_max = max(arr[i], arr[i] + local_max);
-
-        if (local_max > global_max)
-        {
-            global_max = local_max;
-        }
-    }
-    cout << global_max;
+    int temp = arr[n - 1];
+     for (int i = n - 1; i > 0; i--)
+    arr[i] = arr[i - 1];
+    arr[0] = temp;
+    for (auto &it : arr)
+        cout << it << " ";
+    cout << endl;
 }
-

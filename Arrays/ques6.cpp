@@ -182,39 +182,26 @@ int main()
 #endif
 
     fastio();
-    int n;
+    int n, k;
     cin >> n;
-    // cin >> k;
+    cin >> k;
     vi arr(n);
     for (int i = 0; i < n; i++)
         cin >> arr[i];
 
-    // Approach-1 Brute force
-    // int ans = INT_MIN;
-    // for (int i = 0; i < n; i++)
-    //     for (int j = i, curSum = 0; j < n; j++)
-    //         curSum += arr[j],
-    //             ans = max(ans, curSum);
+    vi arr2(k);
+    for (int i = 0; i < k; i++)
+        cin >> arr2[i];
 
-    // cout << ans << endl;
-    //
-
-
-
-
-    
-    // Approach 2- Kadane Algorith
-    int local_max = 0;
-    int global_max = INT_MIN;
+    set<int> s;
     for (int i = 0; i < n; i++)
-    {
-        local_max = max(arr[i], arr[i] + local_max);
+    s.insert(arr[i]);
 
-        if (local_max > global_max)
-        {
-            global_max = local_max;
-        }
-    }
-    cout << global_max;
+     for (int i = 0; i < k; i++)
+     s.insert(arr2[i]);
+
+    cout<<s.size()<<endl;
+
+
+
 }
-
