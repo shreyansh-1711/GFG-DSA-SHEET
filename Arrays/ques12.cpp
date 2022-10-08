@@ -200,11 +200,7 @@ int main()
             swap(arr2[j++], arr1[k--]);
         }
     }
-   
-    // Sort first array
     sort(arr1.begin(), arr1.end());
-   
-    // Sort second array
     sort(arr2.begin(), arr2.end());
     for (auto &it : arr1)
         cout << it << " ";

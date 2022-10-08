@@ -182,37 +182,33 @@ int main()
 #endif
 
     fastio();
-    int n,m;
+    int n;
     cin >> n;
-    cin >> m;
-    vi arr1(n);
-    vi arr2(m);
+    // cin >> k;
+    vi arr(n);
     for (int i = 0; i < n; i++)
-        cin >> arr1[i];
-    for (int i = 0; i < m; i++)
-        cin >> arr2[i];
+        cin >> arr[i];
 
-    int i = 0, j = 0, k = n - 1;
-    while (i <= k && j < k) {
-        if (arr1[i] < arr2[j])
-            i++;
-        else {
-            swap(arr2[j++], arr1[k--]);
+
+    int jumps[n];
+    int i, j;
+ 
+    if (n == 0 || arr[0] == 0)
+        return INT_MAX;
+ 
+    jumps[0] = 0;
+ 
+    // Find the minimum number of jumps to reach arr[i]
+    // from arr[0], and assign this value to jumps[i]
+    for (i = 1; i < n; i++) {
+        jumps[i] = INT_MAX;
+        for (j = 0; j < i; j++) {
+            if (i <= j + arr[j] && jumps[j] != INT_MAX) {
+                jumps[i] = min(jumps[i], jumps[j] + 1);
+                break;
+            }
         }
     }
-   
-    // Sort first array
-    sort(arr1.begin(), arr1.end());
-   
-    // Sort second array
-    sort(arr2.begin(), arr2.end());
-    for (auto &it : arr1)
-        cout << it << " ";
-    cout << endl;
-    for (auto &it : arr2)
-        cout << it << " ";
-    cout << endl;
-
-
-        return 0;
+    cout<< jumps[n - 1];
 }
+

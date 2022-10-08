@@ -182,37 +182,39 @@ int main()
 #endif
 
     fastio();
-    int n,m;
+    int n;
     cin >> n;
-    cin >> m;
-    vi arr1(n);
-    vi arr2(m);
+    // cin >> k;
+    vi arr(n);
     for (int i = 0; i < n; i++)
-        cin >> arr1[i];
-    for (int i = 0; i < m; i++)
-        cin >> arr2[i];
+        cin >> arr[i];
 
-    int i = 0, j = 0, k = n - 1;
-    while (i <= k && j < k) {
-        if (arr1[i] < arr2[j])
-            i++;
-        else {
-            swap(arr2[j++], arr1[k--]);
+    // Approach-1 Brute force
+    // int ans = INT_MIN;
+    // for (int i = 0; i < n; i++)
+    //     for (int j = i, curSum = 0; j < n; j++)
+    //         curSum += arr[j],
+    //             ans = max(ans, curSum);
+
+    // cout << ans << endl;
+    //
+
+
+
+
+    
+    // Approach 2- Kadane Algorith
+    int local_max = 0;
+    int global_max = INT_MIN;
+    for (int i = 0; i < n; i++)
+    {
+        local_max = max(arr[i], arr[i] + local_max);
+
+        if (local_max > global_max)
+        {
+            global_max = local_max;
         }
     }
-   
-    // Sort first array
-    sort(arr1.begin(), arr1.end());
-   
-    // Sort second array
-    sort(arr2.begin(), arr2.end());
-    for (auto &it : arr1)
-        cout << it << " ";
-    cout << endl;
-    for (auto &it : arr2)
-        cout << it << " ";
-    cout << endl;
-
-
-        return 0;
+    cout << global_max;
 }
+

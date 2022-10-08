@@ -182,37 +182,24 @@ int main()
 #endif
 
     fastio();
-    int n,m;
+    int n;
     cin >> n;
-    cin >> m;
-    vi arr1(n);
-    vi arr2(m);
+    // cin >> k;
+    vi nums(n);
     for (int i = 0; i < n; i++)
-        cin >> arr1[i];
-    for (int i = 0; i < m; i++)
-        cin >> arr2[i];
+        cin >> nums[i];
 
-    int i = 0, j = 0, k = n - 1;
-    while (i <= k && j < k) {
-        if (arr1[i] < arr2[j])
-            i++;
-        else {
-            swap(arr2[j++], arr1[k--]);
+    int ind = 0;
+
+    sort(nums.begin(), nums.end());
+    for (int i = 0; i < nums.size() - 1; i++)
+    {
+
+        if (nums[i] == nums[i + 1])
+        {
+            ind = nums[i];
+            break;
         }
     }
-   
-    // Sort first array
-    sort(arr1.begin(), arr1.end());
-   
-    // Sort second array
-    sort(arr2.begin(), arr2.end());
-    for (auto &it : arr1)
-        cout << it << " ";
-    cout << endl;
-    for (auto &it : arr2)
-        cout << it << " ";
-    cout << endl;
-
-
-        return 0;
+    cout << ind;
 }
