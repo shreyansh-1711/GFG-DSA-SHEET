@@ -1,3 +1,58 @@
+// // class Solution {
+// // public:
+// //     void nextPermutation(vector<int>& arr) {
+// //     int n = arr.size();
+// //     int idx=-1;
+// //     for(int i=n-1; i>0; i--) 
+// //     {
+// //         if(arr[i]>arr[i-1])
+// //         idx = i;
+// //         break;
+// //     }   
+// //     if(idx=-1)
+// //     {
+// //         reverse(arr.begin(), arr.end());
+// //         return;
+// //     }
+// //     else
+// //     {
+// //         int prev = idx;
+// //         for(int i=idx+1; i<n;i++){
+// //             if(arr[i]>arr[idx-1] and arr[i]<arr[prev]){
+// //                 prev=i;
+// //             }
+// //         }
+// //         swap(arr[idx-1], arr[prev]);
+// //         reverse(arr.begin()+idx, arr.end());
+// //     }
+    
+// //     }
+// // };
+
+// class Solution {
+// public:
+//     void nextPermutation(vector<int>& v) {
+//         int ind=-1;
+//         for(int i=v.size()-1;i>=1;i--){
+//                 if(v[i]>v[i-1]){
+//                         ind=i-1;
+//                         break;
+//                 }
+//         }
+//         if(ind==-1){
+//                 sort(v.begin(),v.end());
+//                 return;
+//         }
+//         for(int i=v.size()-1;i>=0;i--){
+//                 if(v[i]>v[ind]){
+//                         swap(v[i],v[ind]);
+//                         break;
+//                 }
+//         }
+//         reverse(v.begin()+ind+1,v.end());    
+//     }
+// };
+
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -182,19 +237,40 @@ int main()
 #endif
 
     fastio();
-    int n,m;
+    int n;
     cin >> n;
-    cin >> m;
-    vi arr1(n);
-    // vi arr2(m);
+    vi v(n);
     for (int i = 0; i < n; i++)
-        cin >> arr1[i];
-    
-    sort(arr1.begin(), arr1.end());
-    arr1[0] += m;
-    arr1[n-1] -= m;
-    cout<<arr1[n-1] - arr1[0];
+        cin >> v[i];
+
+    int ind = -1;
+    for (int i = v.size() - 1; i >= 1; i--)
+    {
+        if (v[i] > v[i - 1])
+        {
+            ind = i - 1;
+            break;
+        }
+    }
+    if (ind == -1)
+    {
+        sort(v.begin(), v.end());
+        
+    }
+    for (int i = v.size() - 1; i >= 0; i--)
+    {
+        if (v[i] > v[ind])
+        {
+            swap(v[i], v[ind]);
+            break;
+        }
+    }
+    reverse(v.begin() + ind + 1, v.end());
+
+    for (auto &it :v)
+        cout << it << " ";
+    cout << endl;
 
 
-        return 0;
+    return 0;
 }

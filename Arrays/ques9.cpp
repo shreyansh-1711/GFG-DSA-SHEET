@@ -182,18 +182,27 @@ int main()
 #endif
 
     fastio();
-    int n,m;
+     int n,k;
     cin >> n;
-    cin >> m;
+    cin >> k;
     vi arr1(n);
     // vi arr2(m);
     for (int i = 0; i < n; i++)
         cin >> arr1[i];
     
     sort(arr1.begin(), arr1.end());
-    arr1[0] += m;
-    arr1[n-1] -= m;
-    cout<<arr1[n-1] - arr1[0];
+    int ans = arr1[n-1] - arr1[0];
+    int small = arr1[0] + k;
+    int large = arr1[n-1] -k;
+    int mi, ma;
+    for(int i=0; i<n-1; i++)
+    {
+        mi = min(small, arr1[i+1]-k);
+        ma = max(large , arr1[i]+k);
+        if(mi<0)continue;
+        ans = min(ans, ma-mi);
+    }
+    cout<<ans<<endl;
 
 
         return 0;
