@@ -192,5 +192,19 @@ int main()
     for (int i = 0; i < n1; i++)
         cin >> arr1[i];
 
+    unordered_map<int, int> m;
+    for (int i = 0; i < n1; i++)
+        m[arr1[i]]++;
+    int count = 0;
+    for (int i = 0; i < n1; i++)
+    {
+        count += m[sum - arr1[i]];
+        if (sum - arr1[i] == arr1[i])
+            count--;
+    }
+
+    // return the half of twice_count
+    cout << count / 2;
+
     return 0;
 }
