@@ -183,14 +183,34 @@ int main()
 
     fastio();
     int n1;
-    cin >> n1;
     int sum;
+    cin >> n1;
+    
     cin >> sum;
 
     vi arr1(n1);
 
     for (int i = 0; i < n1; i++)
         cin >> arr1[i];
-
+    int l, r, count = 0;
+    sort(arr1.begin(), arr1.end());
+    for (int i = 0; i < n1 ; i++)
+    {
+        l = i ;
+        r = n1 - 1; // index of the last element
+        while (l < r)
+        {
+            if (arr1[i] + arr1[l] + arr1[r] == sum)
+            {
+                count++;
+            }
+            else if (arr1[i] + arr1[l] + arr1[r] < sum)
+                l++;
+            else
+                r--;
+        }
+         cout << count;
+    }
+   
     return 0;
 }
