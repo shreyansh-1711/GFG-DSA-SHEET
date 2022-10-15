@@ -172,7 +172,48 @@ ll lcm(ll a, ll b) { return ((a * b) / (gcd(a, b))); }
 
 //*****************************************************************************
 
+void rightrotate(int arr[], int n, int outofplace, int cur)
+{
+    char tmp = arr[cur];
+    for (int i = cur; i > outofplace; i--)
+        arr[i] = arr[i - 1];
+    arr[outofplace] = tmp;
+}
+ 
+void rearrange(int arr[], int n)
+{
+    int outofplace = -1;
+ 
+    for (int index = 0; index < n; index++) {
+        if (outofplace >= 0) {
+            if (((arr[index] >= 0) && (arr[outofplace] < 0))
+                || ((arr[index] < 0)
+                    && (arr[outofplace] >= 0))) {
+                rightrotate(arr, n, outofplace, index);
+                if (index - outofplace >= 2)
+                    outofplace = outofplace + 2;
+                else
+                    outofplace = -1;
+            }
+        }
+ 
+        // if no entry has been flagged out-of-place
+        if (outofplace == -1) {
+            // check if current entry is out-of-place
+            if (((arr[index] >= 0) && (!(index & 0x01)))
+                || ((arr[index] < 0) && (index & 0x01))) {
+                outofplace = index;
+            }
+        }
+    }
+}
 
+void printArray(int arr[], int n)
+{
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+}
 
 int main()
 {
@@ -184,50 +225,19 @@ int main()
 #endif
 
     fastio();
-    int n;
-    cin >> n;
-    vi arr(n);
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
-
-
+    int n1;
+    cin >> n1;
+    int arr[n1];
+    for(int i=0; i<n1; i++){
+        cin>>arr[i];
+    }
+     rearrange(arr, n1);
     
-    // int f=0;
-    // for(int i=0; i<n; i++){
-    //     int sum=0;
-    //     for(int j=i; j<n; j++){
-    //         sum = sum + arr[j];
-    //         if(sum==0){
-    //             f=1;
-    //             break;
-    //         }
-    //     }
-    //     if(f==1)
-    //     break;
-    // }    
-    // if(f==1){
-    //     cout<<"yes"<<endl;
-    // }else{
-    //     cout<<"No"<<endl;;
-    // }
-
-
-    int f=0;
-    int sum=0;
-    unordered_map<int, int> m;
-    for(int i=0; i<n; i++){
-        sum = sum+arr[i];
-        if(sum ==0 or m[sum] or arr[i]==0){
-            f=1;
-            break;
-        }else{
-            m[sum] =1;
-        }
-    }
-        if(f==1){
-        cout<<"yes"<<endl;
-    }else{
-        cout<<"No"<<endl;;
-    }
+    printArray(arr, n1);
+ 
+   
     return 0;
 }
+
+// Video Lnk
+// https://www.youtube.com/watch?v=5MeI5Kk8KTQ
