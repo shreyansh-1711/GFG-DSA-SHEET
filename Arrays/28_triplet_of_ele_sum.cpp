@@ -203,17 +203,21 @@ int main()
         while(j<k){
             if(arr[i] + arr[j] + arr[k] == sum){
                 cnt++;
-            }else if(arr[i] + arr[j] + arr[k] < sum){
+            }
+            else if(arr[i] + arr[j] + arr[k] < sum){
                 j++;
             }
             else if(arr[i] + arr[j] + arr[k] > sum){
                 k--;
             }
         }
+cout<<cnt<<endl;
+    
+    }
+    
+    
 
-    }
-    if(cnt > 0){
-    cout<<cnt<<endl;
-    }
+
     return 0;
+
 }
