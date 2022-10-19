@@ -182,24 +182,36 @@ int main()
 #endif
 
     fastio();
-    int n,k;
-    cin >> n >> k;
+    int n;
+    cin >> n;
     vi arr(n);
     for (int i = 0; i < n; i++)
         cin >> arr[i];
 
-    int x = n/k;
-     unordered_map<int, int> freq;    
-     for (int i = 0; i < n; i++){
-         freq[arr[i]]++;
-     }
+    int cnt = 1;
 
-     for(auto i : freq)
+    int ans = 1;
+    sort(all(arr));
+
+    for (int i = 0; i < n - 1; i++)
     {
-        if (i.second > x)
+
+        if (arr[i] + 1 == arr[i + 1])
         {
-            cout << i.first << endl;
+            cnt++;
         }
+
+        else if (arr[i] == arr[i + 1])
+        {
+        }
+        else
+        {
+            cnt = 1;
+        }
+        ans = max(ans, cnt);
     }
+
+    cout << ans;
+
     return 0;
 }
