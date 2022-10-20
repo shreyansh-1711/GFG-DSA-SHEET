@@ -191,23 +191,7 @@ int main()
     for (int i = 0; i < k; i++)
         cin >> arr2[i];
 
-    unordered_map<int, int> mp;
-    for (int i = 0; i < k; i++)
-    {
-        mp[arr2[i]]++;
-    }
-    for (int i = 0; i < n; i++)
-    {
-        mp[arr1[i]]--;
-    }
-    for (int i = 0; i < k; i++)
-    {
-        if (mp[arr2[i]] > 0)
-        {
-            cout<< "No"<< endl;
-        }
-    }
-    cout<<"Yes"<<endl;
+    
 
     return 0;
 }
