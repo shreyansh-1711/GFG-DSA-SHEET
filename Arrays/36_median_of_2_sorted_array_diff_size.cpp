@@ -182,28 +182,21 @@ int main()
 #endif
 
     fastio();
-    int test;
-    cin >> test;
-    while (test--)
+    int n;
+    cin >> n;
+    vi arr1(n);
+    for (int i = 0; i < n; i++)
+        cin >> arr1[i];
+
+    sort(all(arr1));
+    if (n % 2 != 0)
     {
-        int n;
-        cin >> n;
-        vi arr1(n);
-        for (int i = 0; i < n; i++)
-            cin >> arr1[i];
-        for (int x = 0; x < n; x++)
-        {
-            string s = to_string(arr1[x]);
-            int len = s.size() - 1;
-            for (int i = 0, j = len; i <= len / 2; i++, j--)
-            {
-                if (s[i] != s[j])
-                {
-                    cout << "0" <<endl;
-                }
-            }
-        }
-        cout << "1" <<endl;
+        cout << arr1[floor(n / 2)];
     }
-    return 0;
+    else
+    {
+        cout << floor((arr1[floor(n / 2)] + arr1[floor(n / 2) - 1]) / 2);
+     
+    }
+   return 0;
 }
