@@ -183,18 +183,55 @@ int main()
 
     fastio();
 
-    long long n,m;
-    cin >> n >> m;
+    int n;
+    cin >> n;
     vi arr1(n);
     for (int i = 0; i < n; i++)
         cin >> arr1[i];
 
-     sort(arr1.begin(),arr1.end());
-        long long ans=INT_MAX;
-        for(long long i=0;i<=n-m;++i)
+    int a, b;
+    cin >> a >> b;
+
+    int l = 0, m = 0, h = arr1.size() - 1;
+
+    while (m <= h)
+    {
+
+        if (arr1[m] < a)
         {
-            ans = min(ans,arr1[i+m-1]-arr1[i]);
+            swap(arr1[m], arr1[l]);
+            m++;
+            l++;
         }
-        cout << ans;
+
+        else if (arr1[m] > b)
+        {
+
+            swap(arr1[m], arr1[h]);
+
+            h--;
+        }
+
+        else
+            m++;
+    }
+     for (auto &it : arr1)
+        cout << it << " ";
+    cout << endl;
+
+
+
+    // int low = 0, high = array.size() - 1, mid = 0;
+
+    // while (mid <= high) {
+    //     if (array[mid] < a) {
+    //         swap(array[mid++], array[low++]);   // we r sure after swap we won't get <a, bcoz it would have processed earlier.
+    //     }
+    //     else if (array[mid] > b) {
+    //         swap(array[high--], array[mid]);    // here it is possible that after swap we can get >b value again hence no increment in mid.
+    //     }
+    //     else mid++;
+    // }
+
     return 0;
 }
