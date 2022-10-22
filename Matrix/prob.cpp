@@ -181,8 +181,7 @@ int main()
     freopen("error.txt", "w", stderr);
 #endif
 
-    fastio();
-
+    
     
     return 0;
 }
