@@ -194,3 +194,5 @@ int main()
     sort(arr.begin(), arr.end());
     cout<<arr.front()<<" "<<arr.back()<<endl;
 }
+
+// Shreyansh Jain

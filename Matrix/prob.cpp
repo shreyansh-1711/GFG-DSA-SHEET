@@ -171,7 +171,13 @@ ll gcd(ll a, ll b)
 ll lcm(ll a, ll b) { return ((a * b) / (gcd(a, b))); }
 
 //*****************************************************************************
+int cal(int p, int n, int r)
+{
+    int si;
+    si = (p*n*r)/100;
+    cout << si << endl;
 
+}
 int main()
 {
 
@@ -181,7 +187,7 @@ int main()
     freopen("error.txt", "w", stderr);
 #endif
 
-    
+   cal(1000,2,5);
     
     return 0;
 }

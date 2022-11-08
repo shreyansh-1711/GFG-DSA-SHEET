@@ -196,3 +196,5 @@ int main()
     sort(arr.begin(), arr.end());
     cout<<arr[k-1]<<endl;
 }
+
+// Shreyansh Jain
