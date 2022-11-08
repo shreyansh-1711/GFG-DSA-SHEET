@@ -180,16 +180,14 @@ int main()
     freopen("output.txt", "w", stdout);
     freopen("error.txt", "w", stderr);
 #endif
-    int n;
-    cin >> n;
-    vector<char> arr(n);
-   
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
-   for (int i = 0; i < n; i++)
-        cout << arr[i];
- 
 
+
+    string s;
+    cin>>s;
+     int st=0,e=s.size()-1;
+        while(st<e)
+        swap(s[st++],s[e--]);
+    cout<<s;
 
     return 0;
 }
