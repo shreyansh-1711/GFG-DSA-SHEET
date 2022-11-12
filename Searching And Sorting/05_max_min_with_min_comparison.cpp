@@ -190,10 +190,7 @@ int main()
 
     sort(all(v));
     cout << v[1];
-    
-    
-
-
+ 
     return 0;
 }
 

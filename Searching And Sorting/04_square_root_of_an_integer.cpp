@@ -181,18 +181,11 @@ int main()
     freopen("error.txt", "w", stderr);
 #endif
 
-    int a,b,c;
-    cin >>a>>b>>c;
-    vi v;
-    v.push_back(a);
-    v.push_back(b);
-    v.push_back(c);
-
-    sort(all(v));
-    cout << v[1];
-    
-    
-
+   
+    int n;
+    cin >> n;
+   
+    cout << ceil(sqrt(n))-1;
 
     return 0;
 }

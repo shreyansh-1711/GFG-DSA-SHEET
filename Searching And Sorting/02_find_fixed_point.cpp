@@ -181,18 +181,27 @@ int main()
     freopen("error.txt", "w", stderr);
 #endif
 
-    int a,b,c;
-    cin >>a>>b>>c;
+    int n;
+    cin >> n;
+    vi arr(n);
     vi v;
-    v.push_back(a);
-    v.push_back(b);
-    v.push_back(c);
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
 
-    sort(all(v));
-    cout << v[1];
-    
-    
-
+    for (int i = 0; i < n; i++)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            if (i + 1 == arr[i])
+            {
+                v.push_back(arr[i]);
+                break;
+            }
+        }
+    }
+    for (auto &it : v)
+        cout << it << " ";
+    cout << endl;
 
     return 0;
 }
