@@ -180,17 +180,37 @@ int main()
     freopen("output.txt", "w", stdout);
     freopen("error.txt", "w", stderr);
 #endif
+    int n;
+    cin >> n;
+    vi arr(n);
 
-    int a,b,c;
-    cin >>a>>b>>c;
-    vi v;
-    v.push_back(a);
-    v.push_back(b);
-    v.push_back(c);
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
 
-    sort(all(v));
-    cout << v[1];
- 
+    unordered_map<int, int> ump;
+    for (int i = 0; i < n; i++)
+    {
+        ump[arr[i]]++;
+    }
+    for (auto it : ump)
+    {
+        if (it.second == 2)
+        {
+            cout << it.first;
+            break;
+        }
+    }
+// int ans[1];
+//     for (int i = 0; i < n; i++)
+//     {
+//         if (arr[i] != i + 1)
+//         {
+//             ans[0] = arr[i];
+//             ans[1] = i + 1;
+//         }
+//     }
+//     cout << ans[1];
+
     return 0;
 }
 
