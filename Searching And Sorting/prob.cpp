@@ -187,19 +187,7 @@ int main()
     for (int i = 0; i < n; i++)
         cin >> arr[i];
 
-    unordered_map<int, int> ump;
-    for (int i = 0; i < n; i++)
-    {
-        ump[arr[i]]++;
-    }
-    for (auto it : ump)
-    {
-        if (it.second > n/2)
-        {
-            cout << it.first;
-            break;
-        }
-    }
+    
 
     return 0;
 }
