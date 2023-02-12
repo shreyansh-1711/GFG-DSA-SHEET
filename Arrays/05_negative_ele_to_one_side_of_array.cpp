@@ -192,8 +192,11 @@ int main()
         cin >> arr[i];
 
     cin>>k;    
-    
-    sort(arr.begin(), arr.end());
+    // method-1
+    // sort(arr.begin(), arr.end());
+
+    // method-2
+    move(arr);
     for (auto &it : arr)
         cout << it << " ";
     cout << endl;

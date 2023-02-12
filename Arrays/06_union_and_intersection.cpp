@@ -200,6 +200,7 @@ int main()
      for (int i = 0; i < k; i++)
      s.insert(arr2[i]);
 
+
     cout<<s.size()<<endl;
 
 
