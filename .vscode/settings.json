@@ -17,5 +17,6 @@
         "valarray": "cpp",
         "sstream": "cpp",
         "type_traits": "cpp"
-    }
+    },
+    "files.autoSave": "onWindowChange"
 }

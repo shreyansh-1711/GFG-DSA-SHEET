@@ -192,7 +192,13 @@ int main()
         cin >> arr[i];
     
     sort(arr.begin(), arr.end());
-    cout<<arr.front()<<" "<<arr.back()<<endl;
+    // method-1
+    // cout << arr.front() << " " << arr.back() << endl;
+    // method-2
+    // cout << arr[0];
+    // cout << arr[n-1];
+    
+    
 }
 
 // Shreyansh Jain

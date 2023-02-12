@@ -139,6 +139,7 @@ ll binMul(ll a, ll b)
     ll ans = 0;
     while (b)
     {
+
         if (b & 1)
         {
             ans = (ans + a) % M;
@@ -164,19 +165,24 @@ ll binExp(ll a, ll b, int m)
 // void sieve(){isPrime[0]=isPrime[1]=false;for(int i = 2; i*i < P; i++){if(isPrime[i]==true){ for(int j = i * i; j < P; j += i)isPrime[j] = false;}}}
 ll gcd(ll a, ll b)
 {
-    if (a == 0)
+    if (a == 0) 
         return b;
     return gcd(b % a, a);
 }
 ll lcm(ll a, ll b) { return ((a * b) / (gcd(a, b))); }
 
 //*****************************************************************************
+
+
 void rev(vi &arr, int start, int end)
 {
-    if(start>=end) return;
-    swap(arr[start], arr[end]);
-    rev(arr, start+1, end-1);    
+    int temp = arr[start];
+   arr[start] = arr[end];
+   arr[end] = temp;
+   start++; end--;
+
 }
+
 
 
 
