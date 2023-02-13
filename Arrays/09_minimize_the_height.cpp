@@ -190,6 +190,7 @@ int main()
     for (int i = 0; i < n; i++)
         cin >> arr1[i];
     
+    
     sort(arr1.begin(), arr1.end());
     int ans = arr1[n-1] - arr1[0];
     int small = arr1[0] + k;
@@ -200,6 +201,7 @@ int main()
         mi = min(small, arr1[i+1]-k);
         ma = max(large , arr1[i]+k);
         if(mi<0)continue;
+
         ans = min(ans, ma-mi);
     }
     cout<<ans<<endl;
