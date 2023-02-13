@@ -188,35 +188,45 @@ int main()
     vi arr(n);
     for (int i = 0; i < n; i++)
         cin >> arr[i];
-
+    //
     // Approach-1 Brute force
     // int ans = INT_MIN;
     // for (int i = 0; i < n; i++)
-    //     for (int j = i, curSum = 0; j < n; j++)
-    //         curSum += arr[j],
-    //             ans = max(ans, curSum);
 
+    //     for (int j = i; j < n; j++)
+    //     {
+    //         int curSum = 0;
+    //         for (int k = i; k <= j; k++)
+    //         {
+    //             curSum += arr[k];
+    //         }
+    //         ans = max(ans, curSum);
+    //     }
     // cout << ans << endl;
     //
 
-
-
-
-    
     // Approach 2- Kadane Algorith
-    int local_max = 0;
-    int global_max = INT_MIN;
-    for (int i = 0; i < n; i++)
-    {
-        local_max = max(arr[i], arr[i] + local_max);
+    // int local_max = 0;
+    // int global_max = INT_MIN;
+    // for (int i = 0; i < n; i++)
+    // {
+    //     local_max = max(arr[i], arr[i] + local_max);
 
-        if (local_max > global_max)
-        {
-            global_max = local_max;
-        }
+    //     if (local_max > global_max)
+    //     {
+    //         global_max = local_max;
+    //     }
+    // }
+    // cout << global_max;
+
+    int maxsum = 0;
+    int cursum = 0;
+    for(int i=0 ;i<n ;i++){
+        cursum += arr[i];
+        if (cursum > maxsum) maxsum = cursum;   
+        if(cursum<0) cursum = 0;
     }
-    cout << global_max;
+    cout << maxsum << endl;
 }
-
 
 // Shreyansh Jain
