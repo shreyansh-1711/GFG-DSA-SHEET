@@ -190,13 +190,13 @@ int main()
         cin >> arr[i];
 
     // Approach-1 Brute force
-    // int ans = INT_MIN;
-    // for (int i = 0; i < n; i++)
-    //     for (int j = i, curSum = 0; j < n; j++)
-    //         curSum += arr[j],
-    //             ans = max(ans, curSum);
+    int ans = INT_MIN;
+    for (int i = 0; i < n; i++)
+        for (int j = i, curSum = 0; j < n; j++)
+            curSum += arr[j],
+                ans = max(ans, curSum);
 
-    // cout << ans << endl;
+    cout << ans << endl;
     //
 
 
