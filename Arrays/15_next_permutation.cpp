@@ -3,12 +3,12 @@
 // //     void nextPermutation(vector<int>& arr) {
 // //     int n = arr.size();
 // //     int idx=-1;
-// //     for(int i=n-1; i>0; i--) 
+// //     for(int i=n-1; i>0; i--)
 // //     {
 // //         if(arr[i]>arr[i-1])
 // //         idx = i;
 // //         break;
-// //     }   
+// //     }
 // //     if(idx=-1)
 // //     {
 // //         reverse(arr.begin(), arr.end());
@@ -25,7 +25,7 @@
 // //         swap(arr[idx-1], arr[prev]);
 // //         reverse(arr.begin()+idx, arr.end());
 // //     }
-    
+
 // //     }
 // // };
 
@@ -49,10 +49,9 @@
 //                         break;
 //                 }
 //         }
-//         reverse(v.begin()+ind+1,v.end());    
+//         reverse(v.begin()+ind+1,v.end());
 //     }
 // };
-
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -242,40 +241,36 @@ int main()
     vi v(n);
     for (int i = 0; i < n; i++)
         cin >> v[i];
-
-    int ind = -1;
-    for (int i = v.size() - 1; i >= 1; i--)
+    int k, l;
+    for (k = n - 2; k >= 0; k--)
     {
-        if (v[i] > v[i - 1])
+        if (v[k] < v[k + 1])
         {
-            ind = i - 1;
             break;
         }
     }
-    if (ind == -1)
-    {
-        sort(v.begin(), v.end());
-        
-    }
-    for (int i = v.size() - 1; i >= 0; i--)
-    {
-        if (v[i] > v[ind])
-        {
-            swap(v[i], v[ind]);
-            break;
-        }
-    }
-    reverse(v.begin() + ind + 1, v.end());
+    if(k<0){
+        reverse(v.begin(), v.end());
 
-    for (auto &it :v)
+    }
+    else {
+        for(l=n-1; l>k; l--){
+            if(v[l] > v[k]){
+                break;
+            }
+        }
+        swap(v[k], v[l]);
+        reverse(v.begin()+k+1, v.end());
+    }
+
+    for (auto &it : v)
         cout << it << " ";
     cout << endl;
-
 
     return 0;
 }
 
-// using inbuilt function 
+// using inbuilt function
 // class Solution {
 // public:
 //     void nextPermutation(vector<int>& arr) {
