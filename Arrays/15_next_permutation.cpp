@@ -274,3 +274,11 @@ int main()
 
     return 0;
 }
+
+// using inbuilt function 
+// class Solution {
+// public:
+//     void nextPermutation(vector<int>& arr) {
+//        next_permutation(arr.begin(),arr.end());
+//     }
+// };
