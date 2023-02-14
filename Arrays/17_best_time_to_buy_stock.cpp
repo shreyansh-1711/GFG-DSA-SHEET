@@ -188,14 +188,13 @@ int main()
     for (int i = 0; i < n; i++)
         cin >> v[i];
 
-
-        int min_p = v[0];
-        int max_p = 0;
-        for(int i=0;i<n;i++){
-            min_p = min(min_p , v[i]);
-            max_p = max(v[i]-min_p, max_p);
-        }
-      cout<<  max_p;
+    int minp = v[0];
+    int maxp = 0;
+    for(int i=0; i<n ;i++){
+        minp = min(minp, v[i]);
+        maxp = max(v[i]-minp, maxp);
+    }
+      cout<<  maxp;
 
     return 0;
 }
