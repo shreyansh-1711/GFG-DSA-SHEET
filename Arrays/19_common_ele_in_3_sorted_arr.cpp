@@ -185,48 +185,37 @@ int main()
     int n1, n2, n3;
     cin >> n1 >> n2 >> n3;
 
-    vi arr1(n1);
-    vi arr2(n2);
-    vi arr3(n3);
+    vi A(n1);
+    vi B(n2);
+    vi C(n3);
     for (int i = 0; i < n1; i++)
-        cin >> arr1[i];
+        cin >> A[i];
     for (int i = 0; i < n2; i++)
-        cin >> arr2[i];
+        cin >> B[i];
     for (int i = 0; i < n3; i++)
-        cin >> arr3[i];
-    int i = 0, j = 0, k = 0;
+        cin >> C[i];
 
-    while (i < n1 && j < n2 && k < n3)
+    unordered_map<int, int> m1, m2, m3;
+    vector<int> v;
+    for (int i = 0; i < n1; i++)
+        m1[A[i]]++;
+    for (int i = 0; i < n2; i++)
+        m2[B[i]]++;
+    for (int i = 0; i < n3; i++)
+        m3[C[i]]++;
+
+    for (int i = 0; i < n1; i++)
     {
-
-        if (arr1[i] == arr2[j] && arr2[j] == arr3[k])
+        if (m1[A[i]] > 0 && m2[A[i]] > 0 && m3[A[i]] > 0)
         {
-            cout << arr1[i] << " ";
-            i++;
-            j++;
-            k++;
+            v.push_back(A[i]);
+
+            m1[A[i]] = 0;
         }
-        else if (arr1[i] < arr2[j])
-            i++;
-        else if (arr2[j] < arr3[k])
-            j++;
-        else
-            k++;
     }
-    // int count = 0;
-
-    // for (int i = 0; i < n; i++)
-    // {
-
-    //         if (v[i] + v[i+1] == k)
-    //         {
-    //             i++;
-    //             count++;
-    //         }
-
-    // }
-
-    // cout << count;
+    for (auto &it : v)
+        cout << it << " ";
+    cout << endl;
 
     // More efficient
 
