@@ -192,25 +192,18 @@ int main()
 
     int ans = 1;
     sort(all(arr));
-
-    for (int i = 0; i < n - 1; i++)
-    {
-
-        if (arr[i] + 1 == arr[i + 1])
-        {
+    for (int i = 0; i < n; i++){
+        if(arr[i]+1 == arr[i+1]){
             cnt++;
         }
-
-        else if (arr[i] == arr[i + 1])
-        {
+        else if(arr[i]==arr[i+1]){
+            continue;
         }
-        else
-        {
-            cnt = 1;
+        else{
+            cnt =1;
         }
         ans = max(ans, cnt);
     }
-
     cout << ans;
 
     return 0;
