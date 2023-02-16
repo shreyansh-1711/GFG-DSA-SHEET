@@ -195,6 +195,6 @@ int main()
     else
         cout << (v[n / 2 - 1] + v[n / 2]) / 2;
 }
-}
+
 
 // Shreyansh Jain

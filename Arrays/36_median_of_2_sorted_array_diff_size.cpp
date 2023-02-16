@@ -194,6 +194,7 @@ int main()
         cout << arr1[floor(n / 2)];
     }
     else
+    
     {
         cout << floor((arr1[floor(n / 2)] + arr1[floor(n / 2) - 1]) / 2);
      
