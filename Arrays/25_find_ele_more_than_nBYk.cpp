@@ -189,15 +189,12 @@ int main()
         cin >> arr[i];
 
     int x = n/k;
-     unordered_map<int, int> freq;    
-     for (int i = 0; i < n; i++){
-         freq[arr[i]]++;
-     }
-
-     for(auto i : freq)
-    {
-        if (i.second > x)
-        {
+    unordered_map<int,int> m;
+    for (int i = 0; i < k; i++){
+        m[arr[i]]++;
+    }
+    for(auto i : m){
+        if(i.second > x){
             cout << i.first << endl;
         }
     }

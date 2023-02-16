@@ -209,5 +209,19 @@ int main()
     }
     cout<<"Yes"<<endl;
 
+    //   unordered_map<int, int> mp;
+    // for(int i=0; i<m; i++){
+    //     mp[a2[i]]++;
+    // }
+    // for(int i=0; i<n; i++){
+    //     mp[a1[i]]--;
+    // }
+    //   for(int i=0; i<m; i++) {
+    //       if(mp[a2[i]]>0){
+    //           cout << "No";
+    //       }
+    //   }
+    //   cout << "Yes";
+
     return 0;
 }
