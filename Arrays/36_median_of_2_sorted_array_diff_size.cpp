@@ -188,7 +188,6 @@ int main()
     for (int i = 0; i < n; i++)
         cin >> arr1[i];
 
-
     sort(all(arr1));
     if (n % 2 != 0)
     {
