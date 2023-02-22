@@ -191,47 +191,24 @@ int main()
 
     int a, b;
     cin >> a >> b;
-
-    int l = 0, m = 0, h = arr1.size() - 1;
-
-    while (m <= h)
-    {
-
-        if (arr1[m] < a)
-        {
-            swap(arr1[m], arr1[l]);
-            m++;
-            l++;
+  int n=arr.size(), low = 0 , high = n-1, i = 0;
+        
+        while(i <= high){
+            if(arr[i] < a){
+                swap(arr[i],arr[low]);
+                low++;
+                i++;
+            }
+            else if(arr[i] > b){
+                swap(arr[i] , arr[high]);
+                high--;
+            }
+            else i++;
         }
-
-        else if (arr1[m] > b)
-        {
-
-            swap(arr1[m], arr1[h]);
-
-            h--;
-        }
-
-        else
-            m++;
-    }
-     for (auto &it : arr1)
-        cout << it << " ";
-    cout << endl;
+    
 
 
-
-    // int low = 0, high = array.size() - 1, mid = 0;
-
-    // while (mid <= high) {
-    //     if (array[mid] < a) {
-    //         swap(array[mid++], array[low++]);   // we r sure after swap we won't get <a, bcoz it would have processed earlier.
-    //     }
-    //     else if (array[mid] > b) {
-    //         swap(array[high--], array[mid]);    // here it is possible that after swap we can get >b value again hence no increment in mid.
-    //     }
-    //     else mid++;
-    // }
+    
 
     return 0;
 }
