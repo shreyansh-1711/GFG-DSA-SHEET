@@ -194,7 +194,7 @@ int main()
 //    approach 1
 //    apply 3 loops and check
 
-    // approach 2
+    // approach 2 - binary search
     int cnt = 0;
     sort(arr.begin(), arr.end());
     for(int i=0; i<n-2; i++){
