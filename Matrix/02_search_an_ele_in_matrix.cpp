@@ -181,27 +181,46 @@ int main()
     freopen("error.txt", "w", stderr);
 #endif
 
-    int r, c;
-    cin >> r >> c;
-    vvi matrix;
+    int rows, cols;
+    cin >> rows >> cols;
+ 
+    int target;
+    cin>>target ;
 
-    for (int i = 0; i < r; i++)
-    {
-        for (int j = 0; j < c; j++)
-        {
-            cin >> matrix[i][j];
+  vector<vector<int>> matrix;
+
+    for (int i = 0; i < rows; i++) {
+        vector<int> row;
+        for (int j = 0; j < cols; j++) {
+            int value;
+            cin >> value;
+            row.push_back(value);
         }
+        matrix.push_back(row);
     }
     
-
-
-    for (int i = 0; i < r; i++)
-    {
-        for (int j = 0; j < c; j++)
-        {
-            cout << matrix[i][j];
+    int i=0;
+        int j=cols-1;
+        while(i<rows and j>=0){
+            if(matrix[i][j]==target){
+                cout << true;
+            }
+            else if(matrix[i][j]>target){
+                j--;
+            }
+            else i++;
         }
-    }
+        
+        cout << false;
+
+
+    // for (int i = 0; i < r; i++)
+    // {
+    //     for (int j = 0; j < c; j++)
+    //     {
+    //         cout << matrix[i][j];
+    //     }
+    // }
     
 
 

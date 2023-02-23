@@ -171,13 +171,7 @@ ll gcd(ll a, ll b)
 ll lcm(ll a, ll b) { return ((a * b) / (gcd(a, b))); }
 
 //*****************************************************************************
-int cal(int p, int n, int r)
-{
-    int si;
-    si = (p*n*r)/100;
-    cout << si << endl;
 
-}
 int main()
 {
 
@@ -187,11 +181,13 @@ int main()
     freopen("error.txt", "w", stderr);
 #endif
 
-  int rows, cols;
-    cin >> rows;
-    cin >> cols;
+    int rows, cols;
+    cin >> rows >> cols;
+ 
+    int target;
+    cin>>target ;
 
-    vector<vector<int>> matrix;
+  vector<vector<int>> matrix;
 
     for (int i = 0; i < rows; i++) {
         vector<int> row;
@@ -202,14 +198,33 @@ int main()
         }
         matrix.push_back(row);
     }
-
-    for (int i = 0; i < matrix.size(); i++) {
-        for (int j = 0; j < matrix[i].size(); j++) {
-            cout << matrix[i][j] << " ";
-        }
-        cout << endl;
-    }
-
     
+     vector<int>v;
+
+        for(int i=0; i<rows; i++){
+
+            for(int j=0; j<cols; j++){
+
+                v.push_back(matrix[i][j]);
+
+            }
+
+        }
+
+        sort(v.begin(),v.end());
+
+        cout << v[v.size()/2];
+
+
+    // for (int i = 0; i < r; i++)
+    // {
+    //     for (int j = 0; j < c; j++)
+    //     {
+    //         cout << matrix[i][j];
+    //     }
+    // }
+    
+
+
     return 0;
 }
