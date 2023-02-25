@@ -2,6 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 typedef long long ll;
 typedef vector<int> vi;
 typedef vector<long long> vll;
@@ -28,6 +29,7 @@ const int P = 1e8 + 10;
 // vb isPrime(P, true);
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 
 #ifndef ONLINE_JUDGE
 #define debug(x)         \
