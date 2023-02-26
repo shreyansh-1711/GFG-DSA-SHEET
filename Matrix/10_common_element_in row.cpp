@@ -170,28 +170,43 @@ ll gcd(ll a, ll b)
 }
 ll lcm(ll a, ll b) { return ((a * b) / (gcd(a, b))); }
 
-#define N 4
+#define M 4
+#define N 5
 
-// Function to rotate the matrix 90 degree clockwise
-void rotate90Clockwise(int arr[N][N])
+void fun(int mat[M][N])
 {
+	unordered_map<int, int> mp;
+
 	for (int j = 0; j < N; j++)
+		mp[mat[0][j]] = 1;
+
+	// traverse the matrix
+	for (int i = 1; i < M; i++)
 	{
-		for (int i = N - 1; i >= 0; i--)
-			cout << arr[i][j] << " ";
-		cout << '\n';
+		for (int j = 0; j < N; j++)
+		{
+			if (mp[mat[i][j]] == i)
+			{
+				mp[mat[i][j]] = i + 1;
+
+				if (i==M-1 && mp[mat[i][j]]==M)
+				cout << mat[i][j] << " ";
+			}
+		}
 	}
 }
 
-// Driver code
 int main()
 {
-	int arr[N][N] = { { 1, 2, 3, 4 },
-					{ 5, 6, 7, 8 },
-					{ 9, 10, 11, 12 },
-					{ 13, 14, 15, 16 } };
-	rotate90Clockwise(arr);
+	int mat[M][N] =
+	{
+		{1, 2, 1, 4, 8},
+		{3, 7, 8, 5, 1},
+		{8, 7, 7, 3, 1},
+		{8, 1, 2, 7, 9},
+	};
+
+	fun(mat);
+
 	return 0;
 }
-
-// This code is contributed by yashbeersingh42

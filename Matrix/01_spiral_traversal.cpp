@@ -170,28 +170,73 @@ ll gcd(ll a, ll b)
 }
 ll lcm(ll a, ll b) { return ((a * b) / (gcd(a, b))); }
 
-#define N 4
+//*****************************************************************************
 
-// Function to rotate the matrix 90 degree clockwise
-void rotate90Clockwise(int arr[N][N])
-{
-	for (int j = 0; j < N; j++)
-	{
-		for (int i = N - 1; i >= 0; i--)
-			cout << arr[i][j] << " ";
-		cout << '\n';
-	}
-}
-
-// Driver code
 int main()
 {
-	int arr[N][N] = { { 1, 2, 3, 4 },
-					{ 5, 6, 7, 8 },
-					{ 9, 10, 11, 12 },
-					{ 13, 14, 15, 16 } };
-	rotate90Clockwise(arr);
-	return 0;
-}
 
-// This code is contributed by yashbeersingh42
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    freopen("error.txt", "w", stderr);
+#endif
+
+    int r, c;
+    cin >> r >> c;
+ 
+    int target;
+    cin>>target ;
+
+  vector<vector<int>> matrix;
+
+    for (int i = 0; i < r; i++) {
+        vector<int> row;
+        for (int j = 0; j < c; j++) {
+            int value;
+            cin >> value;
+            row.push_back(value);
+        }
+        matrix.push_back(row);
+    }
+    
+     int left = 0;
+        int right = c-1;
+        int top =0;
+        int bottom = r-1;
+        vector<int> v;
+        
+        while(top <= bottom && left <= right){
+            for(int i=left ; i<=right ; i++){
+            v.push_back(matrix[top][i]);
+            
+        }
+        top = top+1;
+        
+        for(int i=top; i<=bottom ; i++){
+        v.push_back(matrix[i][right]);
+        }
+        right = right-1;
+        
+          if(top<=bottom){
+                for(int i=right; i>=left; i--){
+                    v.push_back(matrix[bottom][i]);
+                }
+                bottom = bottom - 1;
+            }
+            
+            if(left<=right){
+                for(int i=bottom; i>=top; i--){
+                    v.push_back(matrix[i][left]);
+                }
+                left = left + 1;
+            }
+            
+        }
+        
+        for (auto &it : v)
+        cout << it << " ";
+    cout << endl;
+
+
+    return 0;
+}
