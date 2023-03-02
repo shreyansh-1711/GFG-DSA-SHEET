@@ -172,53 +172,47 @@ ll gcd(ll a, ll b)
 }
 ll lcm(ll a, ll b) { return ((a * b) / (gcd(a, b))); }
 
-//*****************************************************************************
-int fun(string str, int capacity){
-    int unattended = 0;
-    unordered_set<char> allocated;
-    unordered_set<char> visited;
- 
-    for (char c: str)
-    {
-        if (visited.find(c) == visited.end())
+        int main()
         {
-            visited.insert(c);
-            if (allocated.size() < capacity) {
-                allocated.insert(c);
-            }
-            else {
-                unattended++;
-            }
-        }
-        else {
-            visited.erase(c);
-            allocated.erase(c);
-        }
-    }
-    return unattended;
-}
-
-
-
-int main()
-{
 
 #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+            freopen("input.txt", "r", stdin);
+            freopen("output.txt", "w", stdout);
 #endif
 
-    fastio();
-    string s;
-    cin>>s;
-    int n;
-    cin>>n;
-    cout << fun(s, n) << endl;
-return 0;
-    //python
-    //  s[:] = s[::-1]
-}
+            fastio();
+
+            string str1, str2;
+            cin >> str1 >> str2;
+
+            int n1 = str1.length();
+            int n2 = str2.length();
+
+            if (n1 != n2)
+                cout << false;
 
 
+            unordered_map<char, int> mp1,mp2;
+             
+             for(int i=0;i<n1;i++)
+             {
+                 mp1[str1[i]] = i+1;
+                 mp2[str2[i]] = i+1;
+            }
+        for(int i=0;i<n1;i++)
+        {
+            if(mp1[str1[i]] != mp2[str2[i]])
 
-// Shreyansh Jain
+                cout << false;
+
+        }
+
+        cout << true;    
+
+            return 0;
+        }
+
+    // python
+    //   s[:] = s[::-1]
+
+    // Shreyansh Jain

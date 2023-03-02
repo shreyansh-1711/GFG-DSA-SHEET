@@ -172,53 +172,62 @@ ll gcd(ll a, ll b)
 }
 ll lcm(ll a, ll b) { return ((a * b) / (gcd(a, b))); }
 
-//*****************************************************************************
-int fun(string str, int capacity){
-    int unattended = 0;
-    unordered_set<char> allocated;
-    unordered_set<char> visited;
- 
-    for (char c: str)
-    {
-        if (visited.find(c) == visited.end())
+        int main()
         {
-            visited.insert(c);
-            if (allocated.size() < capacity) {
-                allocated.insert(c);
-            }
-            else {
-                unattended++;
-            }
-        }
-        else {
-            visited.erase(c);
-            allocated.erase(c);
-        }
-    }
-    return unattended;
-}
-
-
-
-int main()
-{
 
 #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+            freopen("input.txt", "r", stdin);
+            freopen("output.txt", "w", stdout);
 #endif
 
-    fastio();
-    string s;
-    cin>>s;
-    int n;
-    cin>>n;
-    cout << fun(s, n) << endl;
-return 0;
-    //python
-    //  s[:] = s[::-1]
-}
+            fastio();
 
+            string A, B;
+            cin >> A >> B;
 
+            int n = A.length();
 
-// Shreyansh Jain
+            int m = B.length();
+
+            int i = n - 1;
+            int j = m - 1;
+            int c = 0;
+
+            unordered_map<char, int> umap;
+            if (n != m)
+            {
+                cout << -1;
+            }
+            for (int i = 0; i < n; i++)
+            {
+                umap[A[i]]++;
+                umap[B[i]]--;
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                if (umap[A[i]] != 0)
+                {
+                    return -1;
+                }
+            }
+            while (i >= 0)
+            {
+                if (A[i] == B[j])
+                {
+                    i--;
+                    j--;
+                }
+                else if (A[i] != B[j])
+                {
+                    c++;
+                    i--;
+                }
+            }
+
+            cout << c;
+
+            return 0;
+        }
+
+    // Shreyansh Jain
