@@ -173,7 +173,16 @@ ll gcd(ll a, ll b)
 ll lcm(ll a, ll b) { return ((a * b) / (gcd(a, b))); }
 
 //*****************************************************************************
-
+ int countofzero(int n){
+            int count = 0;
+            while(n>=5){
+                count = count + n/5;
+                n /= 5;
+                
+            }
+            return count;
+        }
+        
 int main()
 {
 
@@ -186,33 +195,20 @@ int main()
 
     int n;
     cin >> n;
-    vi arr(n);
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
-
-    int m;
-    cin >> m;
-    vi arr2(m);
-    for (int i = 0; i < m; i++)
-        cin >> arr2[i];
-    int k; cin>>k;    
-
-    vector<int> ans;
-
-    for (int i = 0; i < n; i++)
-    {
-
-        ans.push_back(arr[i]);
-    }
-    for (int i = 0; i < m; i++)
-    {
-
-        ans.push_back(arr2[i]);
-    }
     
-    sort(ans.begin(), ans.end());
-
-    cout << ans[k - 1];
+     int low=0, high=INT_MAX;
+        int ans = -1,mid;
+        while(low<=high){
+            mid = low+(high-low)/2;
+            if(countofzero(mid)>=n){
+                ans = mid;
+                high = mid-1;
+            }
+            else {
+                low = mid+1;
+            }
+        }
+        cout << ans;
     return 0;
 }
 
