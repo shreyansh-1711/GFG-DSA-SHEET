@@ -186,32 +186,21 @@ int main()
 
     int n;
     cin >> n;
-    vi arr(n);
+    vector<long long int> arr(n);
     for (int i = 0; i < n; i++)
         cin >> arr[i];
-
-    int m;
-    cin >> m;
-    vi arr2(m);
-    for (int i = 0; i < m; i++)
-        cin >> arr2[i];
-    int k; cin>>k;    
-
-    vector<int> ans;
-
-    for (int i = 0; i < n; i++)
+    long long int result = 0;
+    map<long long int, int> freq;
+    long long int sum = 0;
+    freq[0]++;
+    for (int i = 1; i <= n; i++)
     {
-
-        ans.push_back(arr[i]);
+        sum += arr[i - 1];
+        freq[sum]++;
+        result += freq[sum] - 1;
     }
-    for (int i = 0; i < m; i++)
-    {
+    cout << result;
 
-        ans.push_back(arr2[i]);
-    }
-    sort(ans.begin(), ans.end());
-
-    cout << ans[k - 1];
     return 0;
 }
 
