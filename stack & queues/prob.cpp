@@ -1,44 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
 
-// //Function to push an integer into the stack1.
-// void twoStacks :: push1(int x)
-// {
-//     if(top2-top1>1){
-//         top1++;
-//         arr[top1] = x;
-        
-//     }
-// }
-   
-// //Function to push an integer into the stack2.
-// void twoStacks ::push2(int x)
-// {
-//  if(top2-top1>1){
-//         top2--;
-//         arr[top2] = x;
-        
-//     }
-// }
-   
-// //Function to remove an element from top of the stack1.
-// int twoStacks ::pop2()
-// {
-//     if(top2<size){
-//         int ans = arr[top2];
-//         top2++;
-//         return ans;
-//     }else {
-//         return -1;
-//     }
-// }
+    string str;
+    cin>>str;
+    stack<char> s;
 
-// //Function to remove an element from top of the stack2.
-// int twoStacks :: pop1()
-// {
-// if( top1>=1){
-//         int ans = arr[top1];
-//         top1--;
-//         return ans;
-//     }else {
-//         return -1;
-//     }
-// }
+    for(int i=0; i<str.length(); i++){
+        char ch = str[i];
+        s.push(ch);
+    }
+
+    string ans = "";
+    while(!s.empty()){
+        char ch = s.top();
+        ans.push_back(ch);
+        s.pop();
+    }
+
+    cout << ans;
+
+    return 0;
+}
