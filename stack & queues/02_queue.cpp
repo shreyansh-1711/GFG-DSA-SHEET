@@ -13,6 +13,8 @@ public:
         rear = 0;
     }
 
+    
+
     /*----------------- Public Functions of Queue -----------------*/
 
     bool isEmpty() {
