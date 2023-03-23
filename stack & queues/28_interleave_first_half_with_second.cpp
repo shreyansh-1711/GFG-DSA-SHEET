@@ -18,6 +18,8 @@
 // timepass question - could be solved using queue in much simpler way
 
 
+
+
 #include <bits/stdc++.h>
 
 using namespace std;
