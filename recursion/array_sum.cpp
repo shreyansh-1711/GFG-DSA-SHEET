@@ -21,6 +21,7 @@ int main()
 {
     int arr[5] = {2,4,6,8,9};
     int size = 5;
+    int key = 4;
     int ans = sum(arr, size);
     cout << ans << endl;
 }
