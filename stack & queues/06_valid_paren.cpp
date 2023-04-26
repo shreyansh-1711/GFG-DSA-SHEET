@@ -12,6 +12,7 @@
 //                 s.push(ch);
 //             }
 //             else {
+
 //                 if(!s.empty()){
 //                     char top = s.top();
 //                     if((ch==')' && top=='(') || (ch=='}' && top=='{')  || (ch==']' && top=='[') ){
