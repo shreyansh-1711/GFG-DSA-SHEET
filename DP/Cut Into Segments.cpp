@@ -11,7 +11,6 @@ int solve(int n, int x, int y, int z){
 	int c = solve(n-z,x,y,z)+ 1;
 
 	int ans = max(a, max(b,c));
-
 	return ans;
 }
 
